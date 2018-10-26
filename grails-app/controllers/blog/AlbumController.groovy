@@ -24,6 +24,7 @@ class AlbumController {
     def show(int id) {
         println(id)
         def album = blogService.getAlbum(id)
+        print(album)
         def username = blogService.getUser(album.id).name
         [album: album,username: username]
     }

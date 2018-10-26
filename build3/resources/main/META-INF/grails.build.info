@@ -1,0 +1,6 @@
+#Mon, 22 Oct 2018 22:21:20 -0300
+
+info.app.version=0.1
+info.app.name=blog
+grails.env=development
+info.app.grailsVersion=3.2.9

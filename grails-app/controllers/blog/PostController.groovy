@@ -26,11 +26,8 @@ class PostController {
         respond Post.list(params), model: [postCount: Post.count(), posts: posts,usernames: usernames ]
     }
 
-    def show(int id) {
-        def post = blogService.getPost(id)
-        def comments = blogService.getCommentByPostId(id)
-        println(comments)
-        [post: post,comments: comments]
+    def show(Post post) {
+        respond post
     }
 
     def create() {

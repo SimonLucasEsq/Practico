@@ -28,7 +28,7 @@
         ${"Titulo: "+data.title}<br>
         ${"Cuerpo: " +data.body}<br>
         ${"Usuario: " + usernames.get(data.userId)}<br>
-        <a href=${"/post/show/"+data.id} style="margin-right: 10px">Ver mas</a><br>
+        <a style="margin-right: 10px">Ver</a><a>Eliminar</a><br>
     </g:each>
     <div class="pagination">
         <g:paginate total="${postCount ?: 0}"/>

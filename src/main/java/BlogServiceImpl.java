@@ -35,17 +35,6 @@ public class BlogServiceImpl {
         JSONElement users= response.getJson();
         return users;
     }
-    public JSONElement getPost(int id){
-        final RestResponse response = clienteRest.get(API_PATH + "/posts/"+id);
-        JSONElement post= response.getJson();
-        return post;
-    }
-    public JSONElement getCommentByPostId(int id){
-        final RestResponse response = clienteRest.get(API_PATH + "/comments?postId="+id);
-        JSONElement commentes = response.getJson();
-        return commentes;
-    }
-
     public JSONElement getAlbum(int id) {
         System.out.println(id);
         final RestResponse response = clienteRest.get(API_PATH + "/albums/"+id);

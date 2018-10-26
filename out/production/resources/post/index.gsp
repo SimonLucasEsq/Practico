@@ -25,9 +25,10 @@
     </g:if>
     <f:table collection="${postList}"/>
     <g:each in="${posts}" var="data" status="i">
-        <g:each in="${data}" var="p" status="j">
-            ${p}<br>
-        </g:each>
+        ${"Titulo: "+data.title}<br>
+        ${"Cuerpo: " +data.body}<br>
+        ${"Usuario: " + usernames.get(data.userId)}<br>
+        <a style="margin-right: 10px">Ver</a><a>Eliminar</a><br>
     </g:each>
     <div class="pagination">
         <g:paginate total="${postCount ?: 0}"/>
