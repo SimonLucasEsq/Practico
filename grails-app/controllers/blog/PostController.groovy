@@ -18,7 +18,6 @@ class PostController {
         def user = blogService.getUser(1)
         println(user.id)
         posts.each {
-           /* println(blogService.getUser(it.userId).name)*/
             if(usernames.get(it.userId)== null) {
                 usernames.put(it.userId, (blogService.getUser(it.userId).name));
                 println(usernames.get(it.userId))
@@ -27,8 +26,11 @@ class PostController {
         respond Post.list(params), model: [postCount: Post.count(), posts: posts,usernames: usernames ]
     }
 
-    def show(Post post) {
-        respond post
+    def show(int id) {
+        def post = blogService.getPost(id)
+        def comments = blogService.getCommentByPostId(id)
+        println(comments)
+        [post: post,comments: comments]
     }
 
     def create() {

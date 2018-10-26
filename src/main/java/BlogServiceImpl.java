@@ -17,8 +17,13 @@ public class BlogServiceImpl {
         JSONElement posts= response.getJson();
         return posts;
     }
-    public void deletePosts(int idpost) {
-        final RestResponse response = clienteRest.delete(API_PATH + "/posts/" + idpost);
+    public JSONElement getAlbums() {
+        final RestResponse response = clienteRest.get(API_PATH + "/albums");
+        JSONElement posts= response.getJson();
+        return posts;
+    }
+    public void deletePosts(int id) {
+        final RestResponse response = clienteRest.delete(API_PATH + "/posts/" + id);
     }
     public JSONElement getUsers(){
         final RestResponse response = clienteRest.get(API_PATH + "/users");
@@ -29,5 +34,22 @@ public class BlogServiceImpl {
         final RestResponse response = clienteRest.get(API_PATH + "/users/"+id);
         JSONElement users= response.getJson();
         return users;
+    }
+    public JSONElement getPost(int id){
+        final RestResponse response = clienteRest.get(API_PATH + "/posts/"+id);
+        JSONElement post= response.getJson();
+        return post;
+    }
+    public JSONElement getCommentByPostId(int id){
+        final RestResponse response = clienteRest.get(API_PATH + "/comments?postId="+id);
+        JSONElement commentes = response.getJson();
+        return commentes;
+    }
+
+    public JSONElement getAlbum(int id) {
+        System.out.println(id);
+        final RestResponse response = clienteRest.get(API_PATH + "/albums/"+id);
+        JSONElement album= response.getJson();
+        return album;
     }
 }
